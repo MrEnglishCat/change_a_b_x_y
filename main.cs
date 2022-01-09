@@ -4,22 +4,21 @@ using System.Linq;
 
 public class Program
 {
-  public static void Main()
+  public static void change(int a, int b)
   {
-    foreach (var i in Fibonacci().Take(20))
-    {
-      Console.WriteLine(i);
-    }
+      int buffer = a;
+      a = b;
+      b = buffer;
+      Console.Write ($"a = {a}; b = {b}\n");
+      
   }
 
-  private static IEnumerable<int> Fibonacci()
+  public static void Main()
   {
-    int current = 1, next = 1;
-
-    while (true) 
-    {
-      yield return current;
-      next = current + (current = next);
-    }
+    Random random = new Random();
+    int x = 1, y = 2;
+    change (x,y);
+    Console.WriteLine ($"x = {x}; y = {y}.");
+  
   }
 }
